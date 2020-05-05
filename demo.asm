@@ -1,11 +1,11 @@
 .start:
-    movi $0, %r1        ;int sprite_skin = 0
+    movi $4, %r1        ;int sprite_skin = 4
     store %r1, 4(%rpp)
     movi $1, %r3        ;int sprite_enabled = 1;
     store %r3, 3(%rpp)  ;enable sprite
     
    
-    movi $3, %r1        ;int sprite_skin = 3
+    movi $7, %r1        ;int sprite_skin = 7
     store %r1, 8(%rpp)
     movi $1, %r3        ;int sprite_enabled = 1;
     store %r3, 7(%rpp)  ;enable sprite 2
@@ -68,7 +68,6 @@
     jne %r4, %r2, doAdd   ; if flag is 0, subtract, else add
     subi $2, %r1
     j xStart
-    
     
 .doAdd:
     addi $2, %r1

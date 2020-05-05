@@ -408,15 +408,18 @@ main(int argc, char* argv[])
                 printf("strlen:%d\n",strlen(line));
                 */
                 if(strlen(line) >= 3 && tokens->size > 0) {
-                    char* first_token = strdup(svec_get(tokens,0));
-                    //printf("first token:%s|\n",first_token);
-                    //print_svec(tokens);
-                    if (strcmp(flags, "-d")==0){
-                        printf("%d: %s\n", fileLineNum, line);
-                    } else if (strcmp(flags, "-o")==0) {
-                        printBin(tokens);
-                        printf("\n");
+                    if (tokens->data[0][0] != ';') {
+                      char* first_token = strdup(svec_get(tokens,0));
+                        //printf("first token:%s|\n",first_token);
+                        //print_svec(tokens);
+                        if (strcmp(flags, "-d")==0){
+                            printf("%d: %s\n", fileLineNum, line);
+                        } else if (strcmp(flags, "-o")==0) {
+                            printBin(tokens);
+                            printf("\n");
+                        }  
                     }
+                    
                         
                     
                 }
